@@ -19,13 +19,13 @@
      <form method="POST" action="{{ route('chirps.upvote', $chirp) }}">
       @csrf
       <button type="submit" class="focus:outline-none">
-       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <!-- Upvote icon SVG -->
-       </svg>
+       <i class="fas fa-thumbs-up text-gray-400 hover:text-blue-500"></i>
       </button>
      </form>
      <span>{{ $chirp->upvotes->count() }} Upvotes</span>
     </div>
+
+
 
     <!-- add comment -->
     <div class="mt-4">
@@ -36,7 +36,7 @@
       <x-primary-button class="mt-2">{{ __('Comment') }}</x-primary-button>
      </form>
     </div>
-    
+
     <!-- Comment section -->
     <div class="mt-4">
      <!-- Display comments -->
