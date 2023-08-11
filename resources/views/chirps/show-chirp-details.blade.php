@@ -1,7 +1,7 @@
 <x-app-layout>
  <x-slot name="header">
   <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-   {{ __('Chirp Details') }}
+   {{ __('Idea Details') }}
   </h2>
  </x-slot>
 
@@ -9,7 +9,7 @@
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
     <!-- Chirp content -->
-    <div class="mb-4">
+    <div class="mb-4 ">
      <h1 class="text-xl font-semibold">{{ $chirp->message }}</h1>
      <p class="text-gray-600">{{ $chirp->user->name }} · {{ $chirp->created_at->format('j M Y, g:i a') }}</p>
     </div>
@@ -18,14 +18,18 @@
     <div class="flex items-center space-x-2 text-gray-600">
      <form method="POST" action="{{ route('chirps.upvote', $chirp) }}">
       @csrf
+      @if($chirp->upvotes->contains(auth()->user()))
+      <button type="submit" class="focus:outline-none">
+       <i class="fas fa-thumbs-up text-yellow-500 hover:text-yellow-500"></i>
+      </button>
+      @else
       <button type="submit" class="focus:outline-none">
        <i class="fas fa-thumbs-up text-gray-400 hover:text-blue-500"></i>
       </button>
+      @endif
      </form>
      <span>{{ $chirp->upvotes->count() }} Upvotes</span>
     </div>
-
-
 
     <!-- add comment -->
     <div class="mt-4">
@@ -41,9 +45,13 @@
     <div class="mt-4">
      <!-- Display comments -->
      @foreach ($chirp->comments as $comment)
-     <p class="text-gray-600">{{ $comment->user->name }}: {{ $comment->content }}</p>
+     <div class="bg-gray-100 rounded p-2 mb-4">
+      <p class="text-gray-600">{{ $comment->user->name }}: {{ $comment->content }}</p>
+      <small class="text-gray-400">{{ $comment->created_at->diffForHumans() }}</small>
+     </div>
      @endforeach
     </div>
+    
    </div>
   </div>
  </div>
