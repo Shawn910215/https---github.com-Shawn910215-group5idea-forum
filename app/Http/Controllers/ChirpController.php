@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse as HttpRedirectResponse;
 use App\Models\Chirp;
 use App\Models\ChirpComment;
 use App\Models\ChirpUpvote;
+use Illuminate\Support\Facades\Http;
 
 
 class ChirpController extends Controller
@@ -147,4 +148,7 @@ class ChirpController extends Controller
 
         return redirect()->back()->with('success', 'Comment added successfully.');
     }
+
+
+    
 }

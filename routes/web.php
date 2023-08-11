@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::resource('chirps', ChirpController::class)
     ->only(['index', 'store', 'edit', 'update', 'destroy'])
@@ -42,9 +43,9 @@ Route::get('chirps/{chirp}', [ChirpController::class, 'show'])->name('chirps.sho
 Route::post('chirps/{chirp}/upvote', [ChirpController::class, 'upvote'])->name('chirps.upvote');
 Route::post('chirps/{chirp}/comment', [ChirpController::class, 'comment'])->name('chirps.comment');
 
-Route::post('/chirps/{chirp}/comment', [ChirpController::class, 'comment'])->name('chirps.comment');
 
 // Route::post('/chirps/{chirp}/comment', [ChirpController::class, 'storeComment'])->name('chirps.comment');
+
 
 
 require __DIR__ . '/auth.php';

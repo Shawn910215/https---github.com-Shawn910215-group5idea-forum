@@ -7,10 +7,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
+            <div class="p-6 text-gray-900">
+                {{ __("You're logged in!") }}
+                <h2 class="text-lg font-semibold mt-4">Weather in Ottawa</h2>
+                <p class="mt-2">Temperature: {{ round($weatherData['main']['temp'] - 273.15, 2)}} °C</p>
+                <p>Humidity: {{ $weatherData['main']['humidity'] }}%</p>
+                <!-- Display other weather information as needed -->
             </div>
         </div>
     </div>

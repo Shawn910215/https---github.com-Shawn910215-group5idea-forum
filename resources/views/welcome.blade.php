@@ -834,8 +834,14 @@
     <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <!-- Enhanced welcome message -->
         <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6 rounded-lg shadow-md mb-6">
-            <p class="text-xl font-semibold">Join Our Creative Community</p>
+            <div class="flex items-center justify-center mb-6">
+                <img src="{{ asset('images\logo.jpg') }}" alt="Logo" class="rounded-full h-44 w-44 object-cover" style="height: 200px; width: auto;margin-bottom: 40px;" />
+            </div>
+            <div class="flex items-center justify-center mb-2">
+                <p class="text-xl font-semibold ">Join Our Creative Community</p>
+            </div>
             <p class="text-xl mt-4">Unleash your creativity and connect with like-minded individuals. Exchange innovative ideas and spark inspiration.</p>
+
         </div>
         @if (Route::has('login'))
         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
