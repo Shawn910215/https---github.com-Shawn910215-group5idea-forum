@@ -14,6 +14,9 @@
                 <p>Humidity: {{ $weatherData['main']['humidity'] }}%</p>
                 <!-- Display other weather information as needed -->
             </div>
+            <div class="flex justify-center mt-6">
+                <img src="{{ asset('images/bgimage.jpeg') }}" alt="Background Image" class="w-full max-w-screen-xl rounded-lg shadow-md" style="max-height: 400px;">
+            </div>
         </div>
     </div>
 </x-app-layout>
