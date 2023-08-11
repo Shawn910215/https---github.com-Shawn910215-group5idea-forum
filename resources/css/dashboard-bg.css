@@ -1,0 +1,6 @@
+.dashboard-bg {
+ background-image: url('images/bgimage.jpeg');
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+}
